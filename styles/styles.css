@@ -1,0 +1,104 @@
+@import './resets.css';
+@import './variables.css';
+
+@media screen and (max-width: 420px) {
+    header {
+        width: 100%;
+        height: 39.8rem;
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+    }
+
+    header::before {
+        content: "";
+        position: absolute;
+        width: 175%;
+        height: 122%;
+        top: -50%;
+        left: -50%;
+        z-index: -1;
+        background: var(--dark-gray);
+        transform: rotate(20deg);
+    }
+
+    header p, span, .nav-buttons {
+        margin-left: 1.6rem;
+    }
+
+    header p:first-of-type {
+        margin-top: 6.6rem;
+        font-size: 2rem;
+    }
+
+    header p:nth-of-type(2) {
+        font-size: 4rem;
+    }
+
+    header span {
+        display: block;
+        width: 80%;
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        margin-top: 0.9rem;
+    }
+
+    .nav-buttons {
+        margin: 5.6rem 0 0 3.8rem;
+        width: 34.5rem;
+        height: 11.1rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .nav-buttons button {
+        background: #fff;
+        border: 1px solid var(--dark-gray);
+        border-radius: 0.4rem;
+        color: var(--light-gray);
+        width: 16rem;
+        height: 4rem;
+        font-size: 1.4rem;
+    }
+
+    .newsletter-container {
+        margin: 2.9rem 0 0 1.6rem;
+    }
+
+    .newsletter-container p:first-of-type {
+        font-size: 2rem;
+        margin-bottom: 1.7rem;
+    }
+
+    .newsletter-container p:nth-of-type(2) {
+        width: 38.6rem;
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        margin-bottom: 3rem;
+    }
+
+    .newsletter-form {
+        font-size: 1.2rem;
+    }
+
+    .newsletter-form input {
+        display: block;
+        width: 38.5rem;
+        height: 3rem;
+        margin: 0.7rem 0 2rem 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
+}
+
+html {
+    font: normal normal normal 10px Helvetica Neue, Helvetica, sans-serif;
+}
+
+body {
+    color: var(--light-gray);
+}
