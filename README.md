@@ -15,4 +15,5 @@
 ## Observações
 1. Mobile-first, com alguns ajustes para ficar melhor em tablets e em notebooks com telas menores e com mudanças significativas em desktop
 2. Por esquecimento meu os commits foram direto na master
-3. Não entendi a terceira parte do mock, não ficou claro na explicação do desafio onde ela aparece, ou se seria somente o template do e-mail
+3. Como troquei de celular meu [Github](https://github.com/felipebazza) acabou dando problema no 2FA, estou aguardando o suporte liberar, por isso precisei criar um novo Github para colocar o projeto
+4. Não entendi a terceira parte do mock, não ficou claro na explicação do desafio onde ela aparece, ou se seria somente o template do e-mail
