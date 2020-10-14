@@ -1,6 +1,7 @@
 $(() => {
     const populateProductsContainer = ((products, nextPage) => {
         const productsContainer = document.querySelector(".product-container");
+        const nextPageButtonContainer = document.querySelector(".more-products-container");
         let productElement = undefined;
         let nextPageButtonElement = undefined;
         let nextPageButton = undefined;
@@ -20,14 +21,15 @@ $(() => {
             $(productsContainer).append(productElement);
         });
         nextPageButtonElement = `<button id="${nextPage}" class="next-product-page">Ainda mais produtos aqui!</button>`;
-        $(productsContainer).append(nextPageButtonElement);
+        $(nextPageButtonContainer).append(nextPageButtonElement);
         nextPageButton = document.querySelector(".next-product-page");
+        // $(nextPageButton).attr("id", nextPage);
         $(nextPageButton).click((event) => {
             // $(productsContainer).html("");
             // loadProducts(event.target.id);
             $(nextPageButton).remove();
-            $(productsContainer).height($(productsContainer).height() + 1450);
-            console.log($(productsContainer).height());
+            // $(productsContainer).height($(productsContainer).height() + 1450);
+            // console.log($(productsContainer).height());
             loadProducts(event.target.id);
         });
     });
