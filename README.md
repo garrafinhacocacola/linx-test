@@ -14,4 +14,5 @@
 
 ## Observações
 1. Mobile-first, com alguns ajustes para ficar melhor em tablets e em notebooks com telas menores e com mudanças significativas em desktop
-2. Não entendi a terceira parte do mock, não ficou claro na explicação do desafio onde ela aparece, ou se seria somente o template do e-mail
+2. Por esquecimento meu os commits foram direto na master
+3. Não entendi a terceira parte do mock, não ficou claro na explicação do desafio onde ela aparece, ou se seria somente o template do e-mail
