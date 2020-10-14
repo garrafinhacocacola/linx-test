@@ -1,10 +1,13 @@
 $(() => {
+    // Populate the products container using an array of products and an URL for the next page
     const populateProductsContainer = ((products, nextPage) => {
+        // Variables
         const productsContainer = document.querySelector(".product-container");
         const nextPageButtonContainer = document.querySelector(".more-products-container");
         let productElement = undefined;
         let nextPageButtonElement = undefined;
         let nextPageButton = undefined;
+        // Iterate over each product as an object, create a product card and append it to the parent container
         $.each(products, (key, value) => {
             productElement = `
                 <div class="product-card" id="${value.id}">
@@ -20,20 +23,17 @@ $(() => {
             `
             $(productsContainer).append(productElement);
         });
+        // Create a button to the next page and set the URL as its ID, then watch over clicks to load the next product's page
         nextPageButtonElement = `<button id="${nextPage}" class="next-product-page">Ainda mais produtos aqui!</button>`;
         $(nextPageButtonContainer).append(nextPageButtonElement);
         nextPageButton = document.querySelector(".next-product-page");
-        // $(nextPageButton).attr("id", nextPage);
         $(nextPageButton).click((event) => {
-            // $(productsContainer).html("");
-            // loadProducts(event.target.id);
             $(nextPageButton).remove();
-            // $(productsContainer).height($(productsContainer).height() + 1450);
-            // console.log($(productsContainer).height());
             loadProducts(event.target.id);
         });
     });
 
+    // Load an array of products using an specific page, but when this is called without a page, load the first page of products
     const loadProducts = ((page=undefined) => {
         if (page === undefined) {
             page = 'frontend-intern-challenge-api.iurykrieger.now.sh/products?page=1';
@@ -46,6 +46,7 @@ $(() => {
         });
     });
 
+    // Validate any input by choosing what to validate, and disable the submit button if it's not valid
     const validateInputs = (targetInput, whatToValidate, submitButton) => {
         const emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         let isValid = false;
@@ -54,6 +55,7 @@ $(() => {
                 isValid = $(targetInput).val().match('^[a-zA-Z]{3,16}$');
                 break;
             case 'email':
+                // Validate if the field is not empty or with spaces
                 if ($(targetInput).val() === "") {
                     break;
                 }
@@ -62,6 +64,7 @@ $(() => {
             default:
                 break;
         };
+        // Add a css class to the input, making it red and disabling the button
         if (isValid) {
             $(targetInput).removeClass("invalid-field");
         } else {
@@ -71,8 +74,10 @@ $(() => {
         return isValid;
     };
 
+    // Load products as the page completes loading
     loadProducts();
 
+    // Both below watches for the newsletter inputs to lose focus and validate both fields to prevent submitting the form with errors
     $("#share-name").on("blur", (event) => {
         if (
             validateInputs(event.target, 'name', $("#share-button"))
