@@ -236,6 +236,10 @@ footer span {
     margin-bottom: 0.5rem;
 }
 
+.invalid-field {
+    border: 1px solid var(--red);
+}
+
 footer span:first-of-type {
     margin-top: 7.1rem;
 }

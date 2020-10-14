@@ -46,5 +46,50 @@ $(() => {
         });
     });
 
+    const validateInputs = (targetInput, whatToValidate, submitButton) => {
+        const emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        let isValid = false;
+        switch (whatToValidate) {
+            case 'name':
+                isValid = $(targetInput).val().match('^[a-zA-Z]{3,16}$');
+                break;
+            case 'email':
+                if ($(targetInput).val() === "") {
+                    break;
+                }
+                isValid = emailReg.test($(targetInput).val());
+                break;
+            default:
+                break;
+        };
+        if (isValid) {
+            $(targetInput).removeClass("invalid-field");
+        } else {
+            $(targetInput).addClass("invalid-field");
+            $(submitButton).prop("disabled", true);
+        }
+        return isValid;
+    };
+
     loadProducts();
+
+    $("#share-name").on("blur", (event) => {
+        if (
+            validateInputs(event.target, 'name', $("#share-button"))
+            &&
+            validateInputs($("#share-email"), 'email', $("#share-button"))
+        ) {
+            $("#share-button").prop("disabled", false);
+        }
+    });
+
+    $("#share-email").on("blur", (event) => {
+        if (
+            validateInputs(event.target, 'email', $("#share-button"))
+            &&
+            validateInputs($("#share-name"), 'name', $("#share-button"))
+        ) {
+            $("#share-button").prop("disabled", false);
+        }
+    });
 });
